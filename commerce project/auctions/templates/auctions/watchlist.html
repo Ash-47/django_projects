@@ -1,0 +1,27 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center">
+      <h4 class="card-title">YOUR WATCHLIST</h4>
+            {% for product in products %}
+                <!-- Grid row -->
+                <br> <br>
+                <div class="card text-center">
+                    <a href="{% url 'viewlisting' product.id %}"><h5 class="card-header h5">{{product.title}}</h5></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Seller : {{product.user}}</h5>
+                        <p class="lead">Current bid : {{product.bid.bid_value}}$</p>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="text-center">
+                    <!-- Text -->
+                    <br> <br>
+                    <p class="lead">No Listings Found</p>
+                </div>
+            {% endfor %}
+
+    </div>
+
+  {% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" id="anchor">Google Search</a>
+    <div class="center">
+    <img id="image" alt="Google Images logo" src="images_logo.png"><br><br>
+      <form class="form-group" action="https://www.google.com/search">
+        <input class="form-control" type="hidden" name="tbm" value="isch">
+        <input id="field" class="form-control" type="text" name="q" required><br>
+        <input class="btn btn-light" type="submit" value="Search">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

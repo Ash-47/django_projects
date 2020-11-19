@@ -1,0 +1,23 @@
+.center{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  width: 50%;
+  text-align: center;
+  transform: translate(-50%,-50%);
+}
+#field{
+  border-radius:25px;
+}
+#anchor{
+  display:inline-block;
+  float:right;
+  padding:20px;
+}
+#adv{
+  margin-left: 20px;
+}
+#image{
+  max-width:50%;
+  height: auto;
+}

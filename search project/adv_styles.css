@@ -1,0 +1,45 @@
+.mono{
+  font-size:11px;
+  font-family:monospace;
+}
+#image{
+  float:left;
+  padding:10px;
+}
+a{
+  float:right;
+  padding:49px;
+  margin-right:35px;
+}
+h3{
+  color: #d93025;
+  float:left;
+  margin-top:40px;
+}
+hr{
+  margin-top:55px;
+}
+p{
+  float: right;
+  margin-right:95px;
+}
+form{
+  float:auto;
+  margin-top:25px;
+}
+button{
+  float:right;
+  margin-right: 425px;
+}
+@media  (max-width:768px){
+  .mono{
+    display: none;
+  }
+  p{
+    display: none;
+  }
+  button{
+    float: right;
+    margin:auto;
+  }
+}

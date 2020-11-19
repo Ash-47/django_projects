@@ -1,0 +1,35 @@
+{% extends "network/index.html" %}
+{% load static %}
+{%block profile %}
+
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <div class="d-flex">
+        <h3 class="text-info">{{user_profile.username.capitalize}}</h3>
+        {%if request.user.username != user_profile.username %}
+        <a href="javascript: follow({{user_profile.id}})"
+          class="btn btn-outline-primary btn-sm mx-2 h-25"
+          id="follow-btn"
+        >{% if request.user in user_profile.followers.all%}
+          Unfollow
+          {% else %}
+          Follow
+          {%endif %}
+        </a>
+        {%endif %}
+      </div>
+      <div class="w-100 d-flex justify-content-end">
+        <span class="text-success">Followers: <span id="follower">{{user_profile.followers.all.count}}</span></span>
+        <span class="text-danger mx-2">Following: {{user_profile.following.all.count}}</span>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'network/index.js' %}"></script>
+<script src="{% static 'network/profile.js' %}"></script>
+{% endblock %}
