@@ -78,7 +78,7 @@ def home(request):
     else:
         stuff=[]
     if flag<1:
-        response=requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={settings.API_KEY}")
+        response=requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={settings.API_KEY}")
         if response.json()["status"]!="ok":
             return render(request,"news/home.html",{"articles":None,"stuff":stuff,"code":response.json()["code"],
             "message":response.json()["message"]})
@@ -98,7 +98,7 @@ def housekeeping(arts,name):
     q=name
 
 
-@csrf_exempt
+#@csrf_exempt
 def search(request):
     global searcharts
     global q
@@ -117,7 +117,7 @@ def search(request):
         if request.POST.get('dom'):
             url+=f"&domains={request.POST.get('dom')}"
         url+=f"&apiKey={settings.API_KEY}"
-        print(url)
+        #print(url)
 
         response=requests.get(url)
 
@@ -137,7 +137,7 @@ def search(request):
         return render(request,"news/search.html",{"articles":page_obj,"name":q,"stuff":stuff})
 
 
-@csrf_exempt
+#@csrf_exempt
 def searchtop(request):
     global searcharts
     global q
@@ -177,7 +177,7 @@ def category(request,value):
     return render(request,"news/category.html",{"articles":page_obj,"name":value.capitalize(),"stuff":stuff})
 
 
-@csrf_exempt
+#@csrf_exempt
 def updateCategory(request):
     if request.method=="PUT":
         data=json.loads(request.body)

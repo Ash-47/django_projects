@@ -99,7 +99,7 @@
           <h5 class="card-header" id="search">Search</h5>
           <div class="card-body">
             <form action="{% url 'search' %}" method="post">
-
+              {% csrf_token %}
             <div class="input-group">
 
               <input type="text" class="form-control"  id="q"  autocomplete="off" placeholder="Search for..." required name="q">
@@ -138,6 +138,7 @@
         <h5 class="card-header">Search top headlines for different categories across countries</h5>
         <div class="card-body">
           <form action="{% url 'searchtop' %}" method="post">
+            {% csrf_token %}
           <div class="input-group">
             <input type="text" class="form-control" autocomplete="off" id="q-top"  placeholder="Search for..."  name="q-top">
             <span class="input-group-append">
