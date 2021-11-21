@@ -18,7 +18,7 @@ search.onkeyup = () => {
 
 var today = new Date();
 var dd = today.getDate();
-var mm = today.getMonth()+1; 
+var mm = today.getMonth()+1;
 var yyyy = today.getFullYear();
 if(dd<8){
     dd='0'+dd
@@ -83,6 +83,21 @@ tp_submit.onclick=function(e){
     }
 
 };
+//get cookie for category update
+function getCookie(name) {
+var cookieValue = null;
+if (document.cookie && document.cookie !== '') {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+        }
+    }
+}
+return cookieValue;}
 
 //category stuff
 document.querySelectorAll(".cat").forEach((button, i) => {
@@ -93,7 +108,11 @@ document.querySelectorAll(".cat").forEach((button, i) => {
       method: 'PUT',
       body:JSON.stringify({
         category:button.dataset.cat
-      })
+      }),
+      credentials: 'same-origin',
+      headers: {
+      "X-CSRFToken": getCookie("csrftoken")
+  }
     })
     .then(response=>response.json())
     .then(result=>{
